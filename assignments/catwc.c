@@ -12,19 +12,12 @@
 
 unsigned countWords(char *str) {
     int state = OUT;
-    unsigned word_c = 0;  // word count
-
-    // Scan all characters one by one
+    unsigned word_c = 0;  // word count 
     while (*str)
     {
-        // If next character is a separator, set the
-        // state as OUT
         if (*str == ' ' || *str == '\n' || *str == '\t') {
             state = OUT;
         }
-        // If next character is not a word separator and
-        // state is OUT, then set the state as IN and
-        // increment word count
         else if (state == OUT)
         {
             state = IN;
@@ -91,13 +84,6 @@ int main(int argc, char *argv[]) {
         sprintf(lc, "%d", lc_u);
         printf("Got this far - 3 %s\n", lc);
 
-        // as of here, this code works! 
-        // if you like, edit it and mess up! I have nothing to say :)
-
-        printf("%s\t%s\t%s\n", lc, wc, res);
-        strcat(lc, strcat("  ",strcat(wc,strcat("  ", res))));
-        
-        write(STDOUT_FILENO, lc, MAXLINE);
     } exit(0);
     
 }
